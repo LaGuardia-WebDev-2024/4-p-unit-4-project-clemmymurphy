@@ -3,152 +3,223 @@
     <meta charset="utf-8" />
     <title>Unit 1 Project</title>
     <style>
-      h1 {
-        color: rgb(139, 0, 0);
-        font-family: special;
-        font-size: 60px
-      }
+      /* General Styling */
       body {
         background-color: rgb(93, 93, 93);
+        margin: 20px;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        color: white;
       }
-      img {
-        border-radius: (30px)
-      }
-      #baka {
-        color: red;
-      }
-      #abttheartist {
-        color: rgb(139, 0, 0);
-      }
-      .shelf {
-        background-color: rgb(13, 400, 240);
+
+      h1,
+      h2 {
         color: rgb(139, 0, 0);
       }
 
-      .Unfinished {
-        background-color: rgb(13, 400, 240);
-        color: rgb(139, 0, 0);
+      /* Navigation Bar */
+      nav {
+        background-color: rgb(50, 50, 50);
+        padding: 10px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 5px;
       }
 
-      h1:hover {
-        background-color: black;
-        color: orange:
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 5px 10px;
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
 
-      table, th, td{
-        border: 1px solid;
-        border-color: rgb(139, 0, 0);
+      nav a:hover {
+        background-color: rgb(139, 0, 0);
+        color: black;
+        border-radius: 5px;
       }
-      @font-face {
-        font-family: special;
-        src: url(https://cdn.glitch.global/8981b8c6-47d5-46fb-8449-1f2dc2188ed1/Linebeam.ttf?v=1731030060907)
+
+      /* Flexbox Layout */
+      .flex-container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20px;
       }
-     
+
+      /* Flip Card Styling */
+      .card {
+        background-color: transparent;
+        width: 250px;
+        height: 350px;
+        perspective: 1000px;
+      }
+
+      .card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+      }
+
+      .card:hover .card-inner {
+        transform: rotateY(180deg);
+      }
+
+      .card-front,
+      .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 10px;
+      }
+
+      .card-front {
+        background-color: rgb(70, 70, 70);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .card-front img {
+        border-radius: 10px;
+        max-width: 100%;
+        height: auto;
+      }
+
+      .card-back {
+        background-color: rgb(139, 0, 0);
+        color: white;
+        transform: rotateY(180deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .portfolio-section {
+        text-align: center;
+      }
     </style>
   </head>
-
   <body>
-    <h1 id="baka">Clementine Murphy mixed media portfolio:</h1>
-    <hr size="4" color="#FF0000" />
-    <h2 id="abttheartist">About the Artist:</h2>
+    <!-- Navigation Bar -->
+    <nav>
+      <a href="#about">About</a>
+      <a href="#favorites">Favorite Mediums</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#commissions">Commissions</a>
+    </nav>
 
+    <!-- About Section -->
+    <h1 id="about">Clementine Murphy Mixed Media Portfolio:</h1>
     <p>
-      Clementine Murphy is a 17 year old artist living in brooklyn.Clementine
-      has a heavy focus on fashion art with multiple constucted garments,
-      exspiremental drape work and textile exspirementation present throughout
-      her work. She is inspired by clubkid culture in the 80's aswell as
-      brutalist architecture from around the world. She hopes to continue her
-      studies at the prestigious Central Saint Martins with Influencial Alumni
-      like Alexander Mqueen and Raf simons.
+      Clementine Murphy is a <span class="highlight">17-year-old</span> artist
+      living in Brooklyn. Clementine focuses heavily on fashion art, with
+      multiple constructed garments, experimental drape work, and textile
+      exploration present throughout her portfolio. Inspired by 80s club kid
+      culture and brutalist architecture, she aspires to study at the
+      prestigious Central Saint Martins, alma mater of influential alumni like
+      Alexander McQueen and Raf Simons.
     </p>
-    <h1>Favorite Mediums:</h1>
-    <li>Oil paint</li>
-    <li>Acrylic Paint</li>
-    <li>Mechanical Pencil</li>
-    <li>Paint pens,Colored pencils</li>
-    <li>fabric and sewing</li>
+
+    <!-- Favorite Mediums -->
+    <h1 id="favorites">Favorite Mediums:</h1>
     <ul>
-      <li>I lovemaking corsets</li>
-      <li>making dresses out of unconventional materials</li>
-      <li>
-        I also love painting on the things I make especiallly if it is denim
-      </li>
+      <li>Oil paint</li>
+      <li>Acrylic paint</li>
+      <li>Mechanical pencil</li>
+      <li>Fabric and sewing</li>
     </ul>
-    <h1>Examples of my works</h1>
 
-    <ul>
-      <li>"We all know mules are stronger than horses "</li>
-      <img
-        src="https://cdn.glitch.global/5443b7b5-9598-4aeb-9fef-07ed3ad199c3/PORTFOLIO.jpg?v=1727280045750"
-      />
-      <a href="https://www.instagram.com/p/DAJk3upPiWz/">CLICK HERE </a>
+    <!-- Portfolio Section -->
+    <div id="portfolio" class="portfolio-section">
+      <h1>Examples of My Works:</h1>
+      <div class="flex-container">
+        <!-- Flip Card 1 -->
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img
+                src="https://cdn.glitch.global/5443b7b5-9598-4aeb-9fef-07ed3ad199c3/PORTFOLIO.jpg?v=1727280045750"
+                alt="We all know mules are stronger than horses"
+              />
+            </div>
+            <div class="card-back">
+              <p>"We all know mules are stronger than horses"</p>
+            </div>
+          </div>
+        </div>
+        <!-- Flip Card 2 -->
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img
+                src="https://cdn.glitch.global/5443b7b5-9598-4aeb-9fef-07ed3ad199c3/PORTFOLIO%20(1).jpg?v=1727280300973"
+                alt="Sheer Connection"
+              />
+            </div>
+            <div class="card-back">
+              <p>"Sheer Connection"</p>
+            </div>
+          </div>
+        </div>
+        <!-- Flip Card 3 -->
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img
+                src="https://cdn.glitch.global/5443b7b5-9598-4aeb-9fef-07ed3ad199c3/PORTFOLIO%20(2).jpg?v=1727280490437"
+                alt="Untitled"
+              />
+            </div>
+            <div class="card-back">
+              <p>"Untitled"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      <li>"<strong class="shelf"> Sheer</strong> Connection"</li>
-      <img
-        src="https://cdn.glitch.global/5443b7b5-9598-4aeb-9fef-07ed3ad199c3/PORTFOLIO%20(1).jpg?v=1727280300973"
-          
-      />
-      <a href="https://www.instagram.com/p/DACYy3Xvegt/">CLICK HERE </a>
-      <li>
-        "<strong><em class="Unfinished"> Untitled </em></strong>"
-      </li>
-      <img
-        src="https://cdn.glitch.global/5443b7b5-9598-4aeb-9fef-07ed3ad199c3/PORTFOLIO%20(2).jpg?v=1727280490437"
-      />
-      <a href="https://www.instagram.com/p/DAO-_QaPq7y/">CLICK HERE </a>
-    </ul>
-    <h1>Commision prices:</h1>
-
+    <!-- Commission Prices -->
+    <h1 id="commissions">Commission Prices:</h1>
     <table>
       <thead>
         <tr>
-          <th>Medium:</th>
-          <th>Size:</th>
-          <th>Price:</th>
+          <th>Medium</th>
+          <th>Size</th>
+          <th>Price</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th>Sketch</th>
-          <th>Any</th>
-          <th>$14</th>
+          <td>Sketch</td>
+          <td>Any</td>
+          <td>$14</td>
         </tr>
         <tr>
-          <th>Mixed Media Drawing</th>
-          <th>Small</th>
-          <th>$25</th>
+          <td>Mixed Media Drawing</td>
+          <td>Small</td>
+          <td>$25</td>
         </tr>
         <tr>
-          <th>Oil Painting</th>
-          <th>Small</th>
-          <th>$30</th>
+          <td>Oil Painting</td>
+          <td>Small</td>
+          <td>$30</td>
         </tr>
         <tr>
-          <th>Oil painting</th>
-          <th>Medium</th>
-          <th>$40</th>
-        </tr>
-        <tr>
-          <th>Custom Clothing piece</th>
-          <th>Any</th>
-          <th>$35-65</th>
+          <td>Custom Clothing</td>
+          <td>Any</td>
+          <td>$35-65</td>
         </tr>
       </tbody>
     </table>
   </body>
 </html>
-<!--
-Requirements
-[  ] Google Font OR Uploaded Font
-[  ] font-size OR font-style 
-[  ] Five CSS Rules
-[  ] Three Images
-
-Select ONE Additional Feature to Add  
-[ no ] Feature 1 - Include a Static Background Image
-[ no ] Feature 2 - Use a unique border-radius
-[ no ] Feature 3 - Use width and margin CSS Properties
-[ no ] Feature 4 - Include at least one more additional HTML page
--->
-
-<!DOCTYPE html>
